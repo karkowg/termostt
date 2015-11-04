@@ -25,6 +25,10 @@ public class Room extends Model {
 
     public Room() {}
 
+    public Room(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

@@ -4,4 +4,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="bt_new_room">New Room</string>
+    <string name="title_activity_room_config">RoomConfigActivity</string>
+    <string name="title_activity_air_config">AirConfigActivity</string>
+    <string name="title_activity_air_commands">AirCommandsActivity</string>
+    <string name="title_activity_sensors">SensorsActivity</string>
+    <string name="title_activity_sensor_config">SensorConfigActivity</string>
+    <string name="title_activity_monitor_config">MonitorConfigActivity</string>
+    <string name="title_activity_monitor">MonitorActivity</string>
 </resources>
