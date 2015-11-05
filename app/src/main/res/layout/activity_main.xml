@@ -12,7 +12,7 @@
         android:id="@+id/btNewRoom"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="monitor" />
+        android:onClick="newRoom" />
 
     <ListView
         android:layout_width="wrap_content"

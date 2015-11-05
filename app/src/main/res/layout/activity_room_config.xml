@@ -59,7 +59,8 @@
         android:text="Save"
         android:id="@+id/btSaveRoom"
         android:layout_below="@+id/etRoomBrokerPort"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="saveRoom" />
 
     <Button
         android:layout_width="match_parent"
@@ -67,7 +68,8 @@
         android:text="Sensors"
         android:id="@+id/btSensors"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="sensors" />
 
     <Button
         android:layout_width="match_parent"
@@ -75,6 +77,7 @@
         android:text="Air Conditioner"
         android:id="@+id/btAC"
         android:layout_above="@+id/btSensors"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="ac" />
 
 </RelativeLayout>

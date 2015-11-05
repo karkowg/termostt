@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true" />
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerSensorType"
         android:layout_below="@+id/tvSensorType"
@@ -42,7 +42,8 @@
         android:text="Save"
         android:id="@+id/btSaveSensor"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="saveSensor" />
 
     <TextView
         android:layout_width="wrap_content"

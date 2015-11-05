@@ -43,7 +43,8 @@
         android:text="Save"
         android:id="@+id/btSaveAir"
         android:layout_below="@+id/etAirModel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="saveAC" />
 
     <Button
         android:layout_width="match_parent"
@@ -51,5 +52,6 @@
         android:text="Commands"
         android:id="@+id/btAirCommands"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="commands" />
 </RelativeLayout>

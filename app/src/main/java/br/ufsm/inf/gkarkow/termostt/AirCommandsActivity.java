@@ -1,9 +1,8 @@
 package br.ufsm.inf.gkarkow.termostt;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class AirCommandsActivity extends AppCompatActivity {
 
@@ -13,25 +12,19 @@ public class AirCommandsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_air_commands);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_air_commands, menu);
-        return true;
+    public void onOffCommand(View view) {
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void upCommand(View view) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+    }
 
-        return super.onOptionsItemSelected(item);
+    public void downCommand(View view) {
+
+    }
+
+    public void saveCommands(View view) {
+
     }
 }

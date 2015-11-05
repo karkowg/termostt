@@ -1,9 +1,13 @@
 package br.ufsm.inf.gkarkow.termostt;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -13,6 +17,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView lvRooms;
+    private List<String> roomsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvRooms = (ListView) findViewById(R.id.lvRooms);
-        List<String> roomsList = new ArrayList<>();
+        roomsList = new ArrayList<>();
 
-        roomsList.add("Escritório");
+        roomsList.add("Office");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
@@ -30,39 +35,57 @@ public class MainActivity extends AppCompatActivity {
                 roomsList);
 
         lvRooms.setAdapter(arrayAdapter);
-    }
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        registerForContextMenu(lvRooms);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        String title = roomsList.get(info.position);
+        menu.setHeaderTitle(title);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        menu.add(Menu.NONE, 1, Menu.NONE, "Monitor");
+        menu.add(Menu.NONE, 2, Menu.NONE, "Configure");
+        menu.add(Menu.NONE, 3, Menu.NONE, "Remove");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 1: monitorRoom();
+                return true;
+            case 2: configRoom();
+                return true;
+            case 3: removeRoom();
+            default: return true;
         }
-
-        return super.onOptionsItemSelected(item);
     }
-    */
 
-    public void monitor(View view) {
+    public void newRoom(View view) {
+        Intent intent = new Intent(this, RoomConfigActivity.class);
+        startActivity(intent);
+    }
+
+    private void configRoom() {
+        Intent intent = new Intent(this, RoomConfigActivity.class);
+        startActivity(intent);
+    }
+
+    private void monitorRoom() {
         Intent intent = new Intent(this, MonitorConfigActivity.class);
         startActivity(intent);
     }
 
+    private void removeRoom() {
+
+    }
+
+    /*
     public void mqtt(View view) {
         Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
     }
+    */
 }

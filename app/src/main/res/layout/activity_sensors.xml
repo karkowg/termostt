@@ -12,7 +12,8 @@
         android:text="New Sensor"
         android:id="@+id/btNewSensor"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="newSensor" />
 
     <ListView
         android:layout_width="wrap_content"
