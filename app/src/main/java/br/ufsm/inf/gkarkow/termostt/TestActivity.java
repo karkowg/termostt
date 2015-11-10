@@ -63,8 +63,8 @@ public class TestActivity extends AppCompatActivity implements MessageHandler, S
             public void onClick(View v) {
                 MqttServiceDelegate.publish(
                         TestActivity.this,
-                        "app/control",
-                        "ligar".getBytes());
+                        "termostt/mode",
+                        "mode:DATA".getBytes());
             }
         });
 
@@ -73,8 +73,8 @@ public class TestActivity extends AppCompatActivity implements MessageHandler, S
             public void onClick(View v) {
                 MqttServiceDelegate.publish(
                         TestActivity.this,
-                        "app/control",
-                        "desligar".getBytes());
+                        "termostt/mode",
+                        "mode:MONITOR".getBytes());
             }
         });
 
@@ -83,8 +83,20 @@ public class TestActivity extends AppCompatActivity implements MessageHandler, S
             public void onClick(View v) {
                 MqttServiceDelegate.publish(
                         TestActivity.this,
-                        "app/get/temperature",
-                        "temp".getBytes());
+                        "termostt/mode",
+                        "mode:IDLE".getBytes());
+                MqttServiceDelegate.publish(
+                        TestActivity.this,
+                        "termostt/infrared",
+                        "IR:type:3".getBytes());
+                MqttServiceDelegate.publish(
+                        TestActivity.this,
+                        "termostt/infrared",
+                        "IR:value:BD30CF".getBytes());
+                MqttServiceDelegate.publish(
+                        TestActivity.this,
+                        "termostt/infrared",
+                        "IR:len:32".getBytes());
             }
         });
 

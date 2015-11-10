@@ -50,7 +50,7 @@ public class AirConditioner extends Model {
     public HashMap<String, Long> getCommands() {
         commands = new HashMap<>();
         for (Command c: commandList()) {
-            commands.put(c.getName(), c.getInfraredCode());
+            commands.put(c.getName(), c.getCode());
         }
         return commands;
     }

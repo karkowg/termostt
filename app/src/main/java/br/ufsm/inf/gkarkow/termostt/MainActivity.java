@@ -14,6 +14,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufsm.inf.gkarkow.model.Room;
+import br.ufsm.inf.gkarkow.model.Root;
+import br.ufsm.inf.gkarkow.util.Session;
+
 public class MainActivity extends AppCompatActivity {
 
     private ListView lvRooms;
@@ -24,19 +28,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lvRooms = (ListView) findViewById(R.id.lvRooms);
-        roomsList = new ArrayList<>();
+        initUser();
 
-        roomsList.add("Office");
+        roomsList = new ArrayList<>();
+        //for (Room r : Session.root.getRooms()) {
+            roomsList.add("r.getName()");
+        //}
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 roomsList);
 
+        lvRooms = (ListView) findViewById(R.id.lvRooms);
         lvRooms.setAdapter(arrayAdapter);
 
         registerForContextMenu(lvRooms);
+    }
+
+    private void initDB() {
+
+    }
+
+    private void initUser() {
+        Root root = new Root();
+        root.setUsername("gkarkow");
+        List<Room> rooms = new ArrayList<>();
+        rooms.add(new Room("Office"));
+        root.setRooms(rooms);
+
+        Session.root = root;
     }
 
     @Override
@@ -82,10 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
     public void mqtt(View view) {
         Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
     }
-    */
 }

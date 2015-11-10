@@ -1,17 +1,5 @@
 package br.ufsm.inf.gkarkow.mqtt.service;
 
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import org.apache.log4j.Logger;
-
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -30,6 +18,18 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.provider.Settings.Secure;
+
+import org.apache.log4j.Logger;
+
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import br.ufsm.inf.gkarkow.mqtt.impl.MqttConnectOptions;
 import br.ufsm.inf.gkarkow.mqtt.impl.MqttException;
@@ -129,7 +129,7 @@ public class MqttService extends Service implements IMqttCallback
     // taken from preferences
     //    topic we want to receive messages about
     //    can include wildcards - e.g.  '#' matches anything
-    private List<IMqttTopic>        topics            	 = new ArrayList<IMqttTopic>();    
+    private List<IMqttTopic>        topics            	 = new ArrayList<>();
 
     
     // defaults - this sample uses very basic defaults for it's interactions 
@@ -137,8 +137,8 @@ public class MqttService extends Service implements IMqttCallback
     private int             		brokerPortNumber     = 1883;
     private IMqttPersistence 		usePersistence       = null;
     private boolean         		cleanStart           = false;
-    private String 					username			 = "guest";
-    private char[]					password			 = "guest".toCharArray();
+    private String 					username			 = "termostt-android";
+    private char[]					password			 = "termostt".toCharArray();
 
     //  how often should the app ping the server to keep the connection alive?
     //
@@ -194,7 +194,7 @@ public class MqttService extends Service implements IMqttCallback
         
         // create a binder that will let the Activity UI send 
         //   commands to the Service 
-        mBinder = new LocalBinder<MqttService>(this);
+        mBinder = new LocalBinder<>(this);
         
         // get the broker settings out of app preferences
         //   this is not the only way to do this - for example, you could use 
@@ -202,8 +202,8 @@ public class MqttService extends Service implements IMqttCallback
         SharedPreferences settings = getSharedPreferences(APP_ID, MODE_PRIVATE);
         brokerHostName = settings.getString("broker", "");
         //topicName      = settings.getString("topic",  "");
-        topics.add(new MqttTopic("app/status/temperature"));
-        topics.add(new MqttTopic("app/control"));
+        topics.add(new MqttTopic("termostt/mode"));
+        topics.add(new MqttTopic("termostt/status"));
         
         mqttClientFactory = new PahoMqttClientFactory(); 
                 
@@ -465,7 +465,7 @@ public class MqttService extends Service implements IMqttCallback
         
         public LocalBinder(S service)
         {
-            mService = new WeakReference<S>(service);
+            mService = new WeakReference<>(service);
         }
         public S getService() 
         {
@@ -554,7 +554,7 @@ public class MqttService extends Service implements IMqttCallback
         // have we lost our data connection?
         //
         
-        if (isOnline() == false)
+        if (!isOnline())
         {
         	changeStatus(ConnectionStatus.NOTCONNECTED_WAITINGFORINTERNET);
             
@@ -795,7 +795,7 @@ public class MqttService extends Service implements IMqttCallback
             }
         }
         
-        if (subscribed == false)
+        if (!subscribed)
         {
             //
             // inform the app of the failure to subscribe so that the UI can 
@@ -910,7 +910,7 @@ public class MqttService extends Service implements IMqttCallback
     
     private boolean isConnected()
     {
-        return ((mqttClient != null) && (mqttClient.isConnected() == true));
+        return ((mqttClient != null) && (mqttClient.isConnected()));
     }
     
     @SuppressWarnings("deprecation")
@@ -943,9 +943,8 @@ public class MqttService extends Service implements IMqttCallback
 
         if (mqttClientId == null)
         {
-            String android_id = Secure.getString(getContentResolver(), 
-                                                 Secure.ANDROID_ID);        
-            mqttClientId = android_id;
+            mqttClientId = Secure.getString(getContentResolver(),
+                                                 Secure.ANDROID_ID);
             
             // truncate - MQTT spec doesn't allow client ids longer than 23 chars
             if (mqttClientId.length() > MAX_MQTT_CLIENTID_LENGTH) {

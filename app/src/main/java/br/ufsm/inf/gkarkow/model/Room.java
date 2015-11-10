@@ -12,9 +12,6 @@ public class Room extends Model {
     @Column(name = "Name")
     private String name;
 
-    @Column(name = "Activity")
-    private String activity;
-
     @Column(name = "AirConditioner", onDelete = Column.ForeignKeyAction.SET_NULL)
     private AirConditioner airConditioner;
 
@@ -27,6 +24,9 @@ public class Room extends Model {
 
     public Room(String name) {
         this.name = name;
+        this.airConditioner = null;
+        this.broker = null;
+        this.sensors = null;
     }
 
     public String getName() {

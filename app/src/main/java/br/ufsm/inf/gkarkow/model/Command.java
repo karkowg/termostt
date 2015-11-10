@@ -10,8 +10,14 @@ public class Command extends Model {
     @Column(name = "Name")
     private String name;
 
-    @Column(name = "InfraredCode")
-    private Long infraredCode;
+    @Column(name = "Protocol")
+    private Integer protocol;
+
+    @Column(name = "Code")
+    private Long code;
+
+    @Column(name = "Length")
+    private Integer length;
 
     @Column(name = "AirConditioner", onDelete = Column.ForeignKeyAction.SET_NULL)
     private AirConditioner airConditioner;
@@ -26,12 +32,12 @@ public class Command extends Model {
         this.name = name;
     }
 
-    public Long getInfraredCode() {
-        return infraredCode;
+    public Long getCode() {
+        return code;
     }
 
-    public void setInfraredCode(Long infraredCode) {
-        this.infraredCode = infraredCode;
+    public void setCode(Long code) {
+        this.code = code;
     }
 
     public AirConditioner getAirConditioner() {
@@ -40,5 +46,13 @@ public class Command extends Model {
 
     public void setAirConditioner(AirConditioner airConditioner) {
         this.airConditioner = airConditioner;
+    }
+
+    public Integer getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(Integer protocol) {
+        this.protocol = protocol;
     }
 }
