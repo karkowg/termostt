@@ -7,4 +7,6 @@ public class Session {
 
     public static Root root = null;
     public static Room room = null;
+    public static Double met = null;
+    public static Double clo = null;
 }

@@ -85,8 +85,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newRoom(View view) {
-        Intent intent = new Intent(this, RoomConfigActivity.class);
+        Intent intent = new Intent(this, MonitorConfigActivity.class);
         startActivity(intent);
+        //Intent intent = new Intent(this, RoomConfigActivity.class);
+        //startActivity(intent);
     }
 
     private void configRoom() {

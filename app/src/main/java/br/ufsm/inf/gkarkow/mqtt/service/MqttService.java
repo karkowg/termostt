@@ -202,8 +202,9 @@ public class MqttService extends Service implements IMqttCallback
         SharedPreferences settings = getSharedPreferences(APP_ID, MODE_PRIVATE);
         brokerHostName = settings.getString("broker", "");
         //topicName      = settings.getString("topic",  "");
-        topics.add(new MqttTopic("termostt/mode"));
-        topics.add(new MqttTopic("termostt/status"));
+        topics.add(new MqttTopic("termostt/#"));
+        //topics.add(new MqttTopic("termostt/mode"));
+        //topics.add(new MqttTopic("termostt/status"));
         
         mqttClientFactory = new PahoMqttClientFactory(); 
                 
