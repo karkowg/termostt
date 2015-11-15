@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type"
+        android:text="@string/type"
         android:id="@+id/tvSensorType"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/name"
         android:id="@+id/tvSensorName"
         android:layout_below="@+id/spinnerSensorType"
         android:layout_centerHorizontal="true" />
@@ -34,12 +34,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/etSensorName"
         android:layout_below="@+id/tvSensorName"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="text" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/save"
         android:id="@+id/btSaveSensor"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -48,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pin"
+        android:text="@string/pin"
         android:id="@+id/tvSensorPin"
         android:layout_below="@+id/etSensorName"
         android:layout_centerHorizontal="true" />
@@ -58,6 +59,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/etSensorPin"
         android:layout_below="@+id/tvSensorPin"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="number" />
 
 </RelativeLayout>

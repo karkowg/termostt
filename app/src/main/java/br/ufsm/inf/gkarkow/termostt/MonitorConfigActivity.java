@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import br.ufsm.inf.gkarkow.util.Session;
 
 public class MonitorConfigActivity extends AppCompatActivity {
 
@@ -27,15 +30,15 @@ public class MonitorConfigActivity extends AppCompatActivity {
         spinnerClo = (Spinner) findViewById(R.id.spinnerClo);
 
         List<String> metList = new ArrayList<>();
-        metList.add("Lazy");
-        metList.add("Regular");
-        metList.add("Heavy");
+        metList.add(getResources().getString(R.string.met_1));
+        metList.add(getResources().getString(R.string.met_2));
+        metList.add(getResources().getString(R.string.met_3));
 
         List<String> cloList = new ArrayList<>();
-        cloList.add("Nude");
-        cloList.add("Summer");
-        cloList.add("Spring/Autumn");
-        cloList.add("Winter");
+        cloList.add(getResources().getString(R.string.clo_1));
+        cloList.add(getResources().getString(R.string.clo_2));
+        cloList.add(getResources().getString(R.string.clo_3));
+        cloList.add(getResources().getString(R.string.clo_4));
 
         ArrayAdapter<String> metAdapter = new ArrayAdapter<>(
                 this,
@@ -49,34 +52,42 @@ public class MonitorConfigActivity extends AppCompatActivity {
         spinnerMet.setAdapter(metAdapter);
         spinnerClo.setAdapter(cloAdapter);
 
-        /*
-        spinnerMet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        initMap();
+
+        spinnerMet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
                 chosen(0, item);
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
 
-        spinnerClo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinnerClo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
                 chosen(1, item);
             }
-        });
-        */
 
-        initMap();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void chosen(Integer spinner, String item) {
         switch (spinner) {
             case 0:
-                //Session.met = values.get(item);
+                Session.met = values.get(item);
                 break;
             case 1:
-                //Session.clo = values.get(item);
+                Session.clo = values.get(item);
                 break;
         }
     }
@@ -88,12 +99,12 @@ public class MonitorConfigActivity extends AppCompatActivity {
 
     private void initMap() {
         values = new HashMap<>();
-        values.put("Lazy", 58.2);
-        values.put("Regular", 116.4);
-        values.put("Heavy", 174.6);
-        values.put("Nude", 0.0);
-        values.put("Summer", 0.5);
-        values.put("Spring/Autumn", 1.0);
-        values.put("Winter", 1.5);
+        values.put(getResources().getString(R.string.met_1), 58.2);
+        values.put(getResources().getString(R.string.met_2), 116.4);
+        values.put(getResources().getString(R.string.met_3), 174.6);
+        values.put(getResources().getString(R.string.clo_1), 0.0);
+        values.put(getResources().getString(R.string.clo_2), 0.5);
+        values.put(getResources().getString(R.string.clo_3), 1.0);
+        values.put(getResources().getString(R.string.clo_4), 1.5);
     }
 }

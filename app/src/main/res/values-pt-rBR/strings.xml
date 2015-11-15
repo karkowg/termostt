@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Termostt</string>
+
+    <string name="action_settings">Configurações</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_room_config">Configurações de ambiente</string>
+    <string name="title_activity_air_config">A/C</string>
+    <string name="title_activity_air_commands">A/C controles</string>
+    <string name="title_activity_sensors">Sensores</string>
+    <string name="title_activity_sensor_config">Configurações de sensor</string>
+    <string name="title_activity_monitor_config">Parâmetros</string>
+    <string name="title_activity_monitor">Termostt</string>
+    <string name="bt_new_room">Novo ambiente</string>
+    <string name="bt_air_on_off">On/Off</string>
+    <string name="bt_air_up">+</string>
+    <string name="bt_air_down">-</string>
+    <string name="bt_commands">Controles</string>
+    <string name="bt_new_sensor">Novo sensor</string>
+    <string name="t_now">Temperatura atual</string>
+    <string name="humidity">Umidade relativa</string>
+    <string name="pmv">Índice PMV</string>
+    <string name="t_target">Alvo</string>
+    <string name="t_ac">A/C</string>
+    <string name="loading">Carregando</string>
+    <string name="sensation">Sensação térmica</string>
+    <string name="bt_params">Definir parâmetros</string>
+    <string name="met">Energia metabólica</string>
+    <string name="clo">Isolamento térmico das roupas</string>
+    <string name="name">Nome</string>
+    <string name="broker">Broker</string>
+    <string name="port">Port</string>
+    <string name="sensors">Sensores</string>
+    <string name="pin">Pino</string>
+    <string name="brand">Marca</string>
+    <string name="model">Modelo</string>
+    <string name="type">Tipo</string>
+    <string name="save">Salvar</string>
+    <string name="start">Iniciar</string>
+    <string name="stop">Parar</string>
+    <string name="finish">Finalizar</string>
+    <string name="monitor">Monitorar</string>
+    <string name="configure">Configurar</string>
+    <string name="remove">Remover</string>
+    <string name="met_1">Sedentária</string>
+    <string name="met_2">Média</string>
+    <string name="met_3">Pesada</string>
+    <string name="clo_1">Sem roupa</string>
+    <string name="clo_2">Verão</string>
+    <string name="clo_3">Outono</string>
+    <string name="clo_4">Inverno</string>
+    <string name="scale_1">Muito frio</string>
+    <string name="scale_2">Frio</string>
+    <string name="scale_3">Neutra</string>
+    <string name="scale_4">Calor</string>
+    <string name="scale_5">Muito calor</string>
+</resources>

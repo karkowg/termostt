@@ -25,7 +25,7 @@ public class Root extends Model {
     }
 
     public List<Room> getRooms() {
-        return getMany(Room.class, "Root");
+        return rooms;//getMany(Room.class, "Root");
     }
 
     public void setRooms(List<Room> rooms) {

@@ -9,7 +9,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Sensor"
+        android:text="@string/bt_new_sensor"
         android:id="@+id/btNewSensor"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

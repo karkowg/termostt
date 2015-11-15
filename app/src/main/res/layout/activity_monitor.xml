@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Office"
+        android:text="@string/app_name"
         android:id="@+id/tvRoomLabel"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -19,25 +19,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Temperature"
+        android:text="@string/t_now"
         android:id="@+id/tvTemperatureLabel"
         android:layout_below="@+id/tvRoomLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="22 ºC"
+        android:text="@string/loading"
         android:id="@+id/tvTemperatureValue"
         android:layout_below="@+id/tvTemperatureLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/accent_material_light" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Humidity"
+        android:text="@string/humidity"
         android:id="@+id/tvHumidityLabel"
         android:layout_below="@+id/tvTemperatureValue"
         android:layout_centerHorizontal="true"
@@ -46,16 +47,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="50%"
+        android:text="@string/loading"
         android:id="@+id/tvHumidityValue"
         android:layout_below="@+id/tvHumidityLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/accent_material_light" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PMV"
+        android:text="@string/pmv"
         android:id="@+id/tvPMVLabel"
         android:layout_below="@+id/tvHumidityValue"
         android:layout_centerHorizontal="true"
@@ -64,17 +66,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.08"
+        android:text="@string/loading"
         android:id="@+id/tvPMVValue"
         android:layout_below="@+id/tvPMVLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/material_deep_teal_500" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Status"
-        android:id="@+id/tvStatusLabel"
+        android:text="@string/sensation"
+        android:id="@+id/tvSensationLabel"
         android:layout_below="@+id/tvPMVValue"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
@@ -82,27 +85,78 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Neutral"
-        android:id="@+id/tvStatusValue"
-        android:layout_below="@+id/tvStatusLabel"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/loading"
+        android:id="@+id/tvSensationValue"
+        android:layout_below="@+id/tvSensationLabel"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/material_deep_teal_500" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stop"
-        android:id="@+id/btStopMonitor"
+        android:text="@string/start"
+        android:id="@+id/btMonitorAction"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="stop" />
+        android:onClick="action" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="connection"
+        android:text="@string/loading"
         android:id="@+id/tvConnStatus"
-        android:layout_above="@+id/btStopMonitor"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btMonitorAction"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textColor="@android:color/holo_purple" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/t_target"
+        android:id="@+id/tvTempTarget"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/tvSensationValue"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tvPMVLabel"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/t_ac"
+        android:id="@+id/tvTempAC"
+        android:layout_alignTop="@+id/tvTempTarget"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tvPMVLabel"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/loading"
+        android:id="@+id/tvTempTargetValue"
+        android:layout_below="@+id/tvTempTarget"
+        android:layout_alignEnd="@+id/tvTempTarget"
+        android:layout_alignStart="@+id/tvTempTarget"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/loading"
+        android:id="@+id/tvTempACValue"
+        android:layout_below="@+id/tvTempAC"
+        android:layout_alignStart="@+id/tvTempAC"
+        android:textColor="@android:color/black"
+        android:layout_alignEnd="@+id/tvTempAC"
+        android:gravity="center" />
 
 </RelativeLayout>

@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         initUser();
 
         roomsList = new ArrayList<>();
-        //for (Room r : Session.root.getRooms()) {
-            roomsList.add("r.getName()");
-        //}
+        for (Room r : Session.root.getRooms()) {
+            roomsList.add(r.getName());
+        }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
@@ -52,9 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUser() {
         Root root = new Root();
-        root.setUsername("gkarkow");
+        root.setUsername("root");
+
+        Room room = new Room();
+        room.setAirConditioner(null);
+        room.setBroker(null);
+        room.setName("Escritório");
+        room.setSensors(null);
         List<Room> rooms = new ArrayList<>();
-        rooms.add(new Room("Office"));
+        rooms.add(room);
         root.setRooms(rooms);
 
         Session.root = root;
@@ -65,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         String title = roomsList.get(info.position);
+        Session.room = Session.root.getRooms().get(info.position);
+
         menu.setHeaderTitle(title);
 
-        menu.add(Menu.NONE, 1, Menu.NONE, "Monitor");
-        menu.add(Menu.NONE, 2, Menu.NONE, "Configure");
-        menu.add(Menu.NONE, 3, Menu.NONE, "Remove");
+        menu.add(Menu.NONE, 1, Menu.NONE, getResources().getString(R.string.monitor));
+        menu.add(Menu.NONE, 2, Menu.NONE, getResources().getString(R.string.configure));
+        menu.add(Menu.NONE, 3, Menu.NONE, getResources().getString(R.string.remove));
     }
 
     @Override
@@ -85,10 +93,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newRoom(View view) {
-        Intent intent = new Intent(this, MonitorConfigActivity.class);
+        Intent intent = new Intent(this, RoomConfigActivity.class);
         startActivity(intent);
-        //Intent intent = new Intent(this, RoomConfigActivity.class);
-        //startActivity(intent);
     }
 
     private void configRoom() {
@@ -103,10 +109,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeRoom() {
 
-    }
-
-    public void mqtt(View view) {
-        Intent intent = new Intent(this, TestActivity.class);
-        startActivity(intent);
     }
 }

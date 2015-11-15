@@ -9,4 +9,5 @@ public class Session {
     public static Room room = null;
     public static Double met = null;
     public static Double clo = null;
+    public static Boolean monitoring = false;
 }
