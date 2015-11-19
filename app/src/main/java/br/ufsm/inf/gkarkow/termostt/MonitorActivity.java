@@ -60,6 +60,9 @@ public class MonitorActivity extends AppCompatActivity implements MessageHandler
     private void publishParams() {
         String metParam = "met:" + Session.met;
         String cloParam = "clo:" + Session.clo;
+        String powerIR = "IR:power:BD807F";
+        String heatIR = "IR:heat:BD30CF";
+        String coolIR = "IR:cool:BD08F7";
         MqttServiceDelegate.publish(
                 MonitorActivity.this,
                 "termostt/params",
@@ -68,6 +71,18 @@ public class MonitorActivity extends AppCompatActivity implements MessageHandler
                 MonitorActivity.this,
                 "termostt/params",
                 cloParam.getBytes());
+        MqttServiceDelegate.publish(
+                MonitorActivity.this,
+                "termostt/infrared",
+                powerIR.getBytes());
+        MqttServiceDelegate.publish(
+                MonitorActivity.this,
+                "termostt/infrared",
+                heatIR.getBytes());
+        MqttServiceDelegate.publish(
+                MonitorActivity.this,
+                "termostt/infrared",
+                coolIR.getBytes());
     }
 
     private void startMonitoring() {

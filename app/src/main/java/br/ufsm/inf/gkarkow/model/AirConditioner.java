@@ -19,7 +19,7 @@ public class AirConditioner extends Model {
     @Column(name = "Room", onDelete = Column.ForeignKeyAction.SET_NULL)
     private Room room;
 
-    private HashMap<String, Long> commands;
+    private HashMap<String, String> commands;
 
     public AirConditioner() {}
 
@@ -47,7 +47,7 @@ public class AirConditioner extends Model {
         this.room = room;
     }
 
-    public HashMap<String, Long> getCommands() {
+    public HashMap<String, String> getCommands() {
         commands = new HashMap<>();
         for (Command c: commandList()) {
             commands.put(c.getName(), c.getCode());
@@ -55,7 +55,7 @@ public class AirConditioner extends Model {
         return commands;
     }
 
-    public void setCommands(HashMap<String, Long> commands) {
+    public void setCommands(HashMap<String, String> commands) {
         this.commands = commands;
     }
 

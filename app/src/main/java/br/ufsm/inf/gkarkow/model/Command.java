@@ -14,7 +14,7 @@ public class Command extends Model {
     private Integer protocol;
 
     @Column(name = "Code")
-    private Long code;
+    private String code;
 
     @Column(name = "Length")
     private Integer length;
@@ -32,11 +32,11 @@ public class Command extends Model {
         this.name = name;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
