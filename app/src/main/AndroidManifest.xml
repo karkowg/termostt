@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.ufsm.inf.gkarkow.termostt" >
+    package="br.ufsm.inf.gkarkow.termostt">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="AA_DB_NAME"
             android:value="Termostt.db" />
@@ -22,12 +22,11 @@
 
         <service
             android:name="br.ufsm.inf.gkarkow.mqtt.service.MqttService"
-            android:process=":MqttSubProcess" >
-        </service>
+            android:process=":MqttSubProcess"/>
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +36,7 @@
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.MainActivity" />
@@ -45,7 +44,7 @@
         <activity
             android:name=".RoomConfigActivity"
             android:label="@string/title_activity_room_config"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.MainActivity" />
@@ -53,7 +52,7 @@
         <activity
             android:name=".AirConfigActivity"
             android:label="@string/title_activity_air_config"
-            android:parentActivityName=".RoomConfigActivity" >
+            android:parentActivityName=".RoomConfigActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.RoomConfigActivity" />
@@ -61,7 +60,7 @@
         <activity
             android:name=".AirCommandsActivity"
             android:label="@string/title_activity_air_commands"
-            android:parentActivityName=".AirConfigActivity" >
+            android:parentActivityName=".AirConfigActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.AirConfigActivity" />
@@ -69,7 +68,7 @@
         <activity
             android:name=".SensorsActivity"
             android:label="@string/title_activity_sensors"
-            android:parentActivityName=".RoomConfigActivity" >
+            android:parentActivityName=".RoomConfigActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.RoomConfigActivity" />
@@ -77,7 +76,7 @@
         <activity
             android:name=".SensorConfigActivity"
             android:label="@string/title_activity_sensor_config"
-            android:parentActivityName=".SensorsActivity" >
+            android:parentActivityName=".SensorsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.SensorsActivity" />
@@ -85,14 +84,20 @@
         <activity
             android:name=".MonitorConfigActivity"
             android:label="@string/title_activity_monitor_config"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.ufsm.inf.gkarkow.termostt.MainActivity" />
         </activity>
         <activity
             android:name=".MonitorActivity"
-            android:label="@string/title_activity_monitor" >
+            android:label="@string/title_activity_monitor"/>
+        <activity
+            android:name=".CommandConfigActivity"
+            android:parentActivityName=".AirCommandsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.ufsm.inf.gkarkow.termostt.AirCommandsActivity" />
         </activity>
     </application>
 

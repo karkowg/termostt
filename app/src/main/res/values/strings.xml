@@ -53,4 +53,7 @@
     <string name="scale_3">Neutral</string>
     <string name="scale_4">Warm</string>
     <string name="scale_5">Hot</string>
+    <string name="protocol">Protocol</string>
+    <string name="code">Code</string>
+    <string name="length">Length</string>
 </resources>

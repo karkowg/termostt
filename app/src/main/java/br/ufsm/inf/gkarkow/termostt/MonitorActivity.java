@@ -2,6 +2,7 @@ package br.ufsm.inf.gkarkow.termostt;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,12 @@ public class MonitorActivity extends AppCompatActivity implements MessageHandler
         btAction = (Button) findViewById(R.id.btMonitorAction);
         btAction.setText(getResources().getString(R.string.start));
 
+        SharedPreferences settings = getSharedPreferences(MqttService.APP_ID, MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("broker", Session.broker);
+        editor.putInt("port", Session.port);
+        editor.apply();
+
         //Init Receivers
         bindStatusReceiver();
         bindMessageReceiver();
@@ -60,9 +67,11 @@ public class MonitorActivity extends AppCompatActivity implements MessageHandler
     private void publishParams() {
         String metParam = "met:" + Session.met;
         String cloParam = "clo:" + Session.clo;
-        String powerIR = "IR:power:BD807F";
-        String heatIR = "IR:heat:BD30CF";
-        String coolIR = "IR:cool:BD08F7";
+        String typeIR = "IR:type:" + Session.typeIR;
+        String lengthIR = "IR:len:" + Session.lengthIR;
+        String powerIR = "IR:power:" + Session.powerIR;
+        String heatIR = "IR:heat:" + Session.heatIR;
+        String coolIR = "IR:cool:" + Session.coolIR;
         MqttServiceDelegate.publish(
                 MonitorActivity.this,
                 "termostt/params",
@@ -71,6 +80,14 @@ public class MonitorActivity extends AppCompatActivity implements MessageHandler
                 MonitorActivity.this,
                 "termostt/params",
                 cloParam.getBytes());
+        MqttServiceDelegate.publish(
+                MonitorActivity.this,
+                "termostt/infrared",
+                typeIR.getBytes());
+        MqttServiceDelegate.publish(
+                MonitorActivity.this,
+                "termostt/infrared",
+                lengthIR.getBytes());
         MqttServiceDelegate.publish(
                 MonitorActivity.this,
                 "termostt/infrared",

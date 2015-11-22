@@ -54,4 +54,7 @@
     <string name="scale_3">Neutra</string>
     <string name="scale_4">Calor</string>
     <string name="scale_5">Muito calor</string>
+    <string name="protocol">Protocolo</string>
+    <string name="code">Código</string>
+    <string name="length">Tamanho (bits)</string>
 </resources>

@@ -200,11 +200,10 @@ public class MqttService extends Service implements IMqttCallback
         //   this is not the only way to do this - for example, you could use 
         //   the Intent that starts the Service to pass on configuration values
         SharedPreferences settings = getSharedPreferences(APP_ID, MODE_PRIVATE);
-        brokerHostName = settings.getString("broker", "");
+        brokerHostName = settings.getString("broker", "192.168.2.200");
+        brokerPortNumber = settings.getInt("port", brokerPortNumber);
         //topicName      = settings.getString("topic",  "");
         topics.add(new MqttTopic("termostt/#"));
-        //topics.add(new MqttTopic("termostt/mode"));
-        //topics.add(new MqttTopic("termostt/status"));
         
         mqttClientFactory = new PahoMqttClientFactory(); 
                 

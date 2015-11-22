@@ -1,7 +1,6 @@
 package br.ufsm.inf.gkarkow.termostt;
 
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -41,10 +40,12 @@ public class TestActivity extends AppCompatActivity implements MessageHandler, S
 
         super.onCreate(savedInstanceState);
 
+        /*
         SharedPreferences settings = getSharedPreferences(MqttService.APP_ID, MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("broker", "192.168.2.200");
         editor.apply();
+        */
 
         //Init UI
         setContentView(R.layout.activity_test);
